@@ -52,8 +52,7 @@ def generate_beat_schedule(beat_schedule_config):
     tenants = get_tenant_model().objects.exclude(schema_name=public_schema_name)
     beat_schedule = {}
     for name, config in beat_schedule_config.items():
-        tenancy_options = config.pop("tenancy_options")
-        if tenancy_options is None:
+        if (tenancy_options := config.pop("tenancy_options")) is None:
             # Missing `tenancy_options` key means the entry is ignored
             continue
         if tenancy_options.get("public", False):
