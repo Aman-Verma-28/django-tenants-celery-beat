@@ -181,6 +181,7 @@ CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 os.makedirs(CELERY_BROKER_TRANSPORT_OPTIONS["data_folder_out"], exist_ok=True)
 os.makedirs(CELERY_BROKER_TRANSPORT_OPTIONS["data_folder_processed"], exist_ok=True)
+SESSION_COOKIE_SECURE = True
 # TO CREATE A CELERY WORKER WHEN TESTING LOCALLY RUN THIS IN THE PROJECT FOLDER:
 # celery -A example worker --loglevel=info --pool=solo
 # TO CREATE A CELERY BEAT SERVICE WHEN TESTING LOCALLY RUN THIS IN THE PROJECT FOLDER:
